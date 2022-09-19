@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import { AddEntryForm } from './components/AddEntryForm';
-// import { EntryItem } from './components/EntryItem';
 
 const initialEntries: Entry[] = [];
 
@@ -14,8 +13,8 @@ function App() {
     entries: Entry[];
   }
 
-  // functional component for the main part of the app down below
   const EntryList: React.FC<EntryListProps> = ({ entries}) => {
+    // this maps out all of the entries
     return (
       <div>
         {entries.map((entry) => (
@@ -30,17 +29,7 @@ function App() {
   }
 
   const EntryItem: React.FC<EntryItemProps> = ({ entry }) => {
-    // code for each of the job entries to work right
-    // still need to modify so the edit button works
-
-    // delete button functionality
-    function removeEntry(EntryToRemove: string): void {
-      const itemList = entries.filter((entry: Entry) => {
-        return entry.job !== EntryToRemove
-      })
-      setEntries(itemList);
-    };
-
+    // code for each of the job entries
     return (
       <div className='job'>
         <div className='row'>
@@ -60,7 +49,11 @@ function App() {
               type="submit"
               onClick={(e) => {
                 e.preventDefault();
-                removeEntry(entry.job);
+                setEntries(
+                  entries.filter((e: Entry) => {
+                    return e.job !== entry.job
+                  })
+                );
               }}
             >
               <img className='icon trashicon' src='./trash.svg'/>
@@ -75,7 +68,7 @@ function App() {
     )
   }
 
-  // code to add a new entry using the setEntries hook
+  // add a new entry using the setEntries hook
   const addEntry: AddEntry = (
     job: string,
     location: string,
