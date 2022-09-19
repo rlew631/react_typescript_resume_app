@@ -1,6 +1,3 @@
-// interface Entry {
-//   text: string;
-// }
 
 interface Entry {
   job: string;

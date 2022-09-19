@@ -69,9 +69,9 @@ export const AddEntryForm: React.FC<Props> = ({addEntry}) => {
       <button
       type="submit"
         onClick={(e) => {
-          e.preventDefault();
+          e.preventDefault(); // this makes sure it doesn't handle like a normal button and refresh the page
           addEntry(job, location, startDate, endDate, responsibilities, tools);
-          setJob('');
+          // setJob(''); // this blanks out the box in the form
         }}
       >
       Add Job
