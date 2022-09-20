@@ -31,6 +31,21 @@
   height:1em;
 }
 
+div.icons > button {
+  transition: 0.2s;
+  border-radius: 0.3em;
+  background-color:#ddd;
+  float:right;
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+}
+
+div.icons > button:hover {
+  background-color:#fff;
+}
+
 .trashicon {
   filter: invert(16%) sepia(97%) saturate(7219%) hue-rotate(360deg) brightness(110%) contrast(114%);
 }

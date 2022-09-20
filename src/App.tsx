@@ -133,18 +133,7 @@ function App() {
       <div className='job'>
         <div className='row'>
           <div className='jobtitle col'>{entry.job}</div>
-          <div className='col-auto'/>
           <div className='col icons'>
-            {/* could be prettier */}
-            <button
-              type="submit"
-              onClick={(e) => {
-                e.preventDefault();
-                setIsEditing(true)
-              }}
-            >
-              <img className='icon' src='./edit.svg'/>
-            </button>
             <button
               type="submit"
               onClick={(e) => {
@@ -157,6 +146,15 @@ function App() {
               }}
             >
               <img className='icon trashicon' src='./trash.svg'/>
+            </button>
+            <button
+              type="submit"
+              onClick={(e) => {
+                e.preventDefault();
+                setIsEditing(true)
+              }}
+            >
+              <img className='icon editicon' src='./edit.svg'/>
             </button>
           </div>
         </div>
