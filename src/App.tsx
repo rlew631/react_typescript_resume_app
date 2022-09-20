@@ -30,7 +30,46 @@ function App() {
 
   const EntryItem: React.FC<EntryItemProps> = ({ entry }) => {
     // code for each of the job entries
-    return (
+    const [isEditing, setIsEditing] = useState(false);
+    return isEditing ? (
+      // isEditing === True
+      <div className='job' style={{color:'red'}}>
+        <div className='row'>
+          <div className='jobtitle col'>{entry.job}</div>
+          <div className='col-auto'/>
+          <div className='col icons'>
+            {/* could be prettier */}
+            <button
+              type="submit"
+              onClick={(e) => {
+                e.preventDefault();
+                setIsEditing(false)
+              }}
+            >
+              <img className='icon' src='./edit.svg'/>
+            </button>
+            <button
+              type="submit"
+              onClick={(e) => {
+                e.preventDefault();
+                setEntries(
+                  entries.filter((e: Entry) => {
+                    return e.job !== entry.job
+                  })
+                );
+              }}
+            >
+              <img className='icon trashicon' src='./trash.svg'/>
+            </button>
+          </div>
+        </div>
+        <div>{entry.location}</div>
+        <div>{entry.startDate} - {entry.endDate}</div>
+        <div>Responsibilities: {entry.responsibilities}</div>
+        <div>Tools: {entry.tools}</div>
+      </div>
+    ) : (
+      // isEditing === false
       <div className='job'>
         <div className='row'>
           <div className='jobtitle col'>{entry.job}</div>
@@ -41,6 +80,7 @@ function App() {
               type="submit"
               onClick={(e) => {
                 e.preventDefault();
+                setIsEditing(true)
               }}
             >
               <img className='icon' src='./edit.svg'/>
