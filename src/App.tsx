@@ -2,15 +2,10 @@ import React, { useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import { JobExperience } from './components/JobExperience';
+import { Steps, StepsProvider, useSteps } from "react-step-builder";
 
 function App() {
   // main app body
-  const steps = [
-    {name: 'StepOne', component: <div>hi1</div>},
-    {name: 'StepTwo', component: <div>hi2</div>},
-    {name: 'StepThree', component: <div>hi3</div>},
-    {name: 'StepFour', component: <div>hi4</div>}
-  ];
   return (
     <div className="App">
       <header className="headerbar">
@@ -29,10 +24,43 @@ function App() {
         </div>
       </header>
       <body>
-        <JobExperience/>
+        <StepsProvider>
+          <MySteps />
+        </StepsProvider>
       </body>
     </div>
   );
 }
+const MySteps = () => {
+  // const { next, prev } = useSteps();
+  // see: https://codesandbox.io/s/react-step-builder-v3-5625v?file=/src/App.tsx:146-212
+  const { prev, next, jump, total, current, progress } = useSteps();
+
+  return (
+    <div className="steps_wrapper">
+      <Steps>
+        <div className="step">
+          <JobExperience/>
+        </div>
+        <div className="step">
+          <h1>Step 2</h1>
+        </div>
+        <div className="step">
+          <h1>Step 3</h1>
+        </div>
+      </Steps>
+      <div className="navigation">
+        <button onClick={prev}>Prev</button>
+        <button onClick={next}>Next</button>
+        {/* <button onClick={() => jump(2)}>Jump to Step 2</button> */}
+      </div>
+      <div className="steps_data">
+        <span className='step_progress'>Total Steps: {total}</span>
+        <span className='step_progress'>Current Step: {current}</span>
+        <span className='step_progress'>Progress: {progress * 100}%</span>
+      </div>
+    </div>
+  );
+};
 
 export default App;

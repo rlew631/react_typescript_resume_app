@@ -9,6 +9,28 @@
   padding-top: 1em;
 }
 
+/* Stuff related to steps */
+.step {
+  background-color: #eee;
+  border-radius: 1em;
+  padding: 1em;
+  margin: 1em;
+}
+
+.navigation {
+  margin-left: 1em;
+}
+
+.steps_data {
+  margin: 1em;
+}
+
+.step_progress {
+  background-color: #eee;
+  margin-right: 0.5em;
+  padding: 0.5em;
+  border-radius: 0.5em;
+}
 
 /* Stuff related to the job cards */
 .job {
