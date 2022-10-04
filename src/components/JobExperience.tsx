@@ -57,76 +57,89 @@ export const JobExperience: React.FC<Props> = () => {
 
     return isEditing ? (
       // isEditing === True
-      <div className='job'>
-        <form>
-        Job:
-        <input
-          type="text"
-          value={job}
-          onChange={(e) =>{
-            setJob(e.target.value)
-          }}
-        />
-        <br/>
-        Location:
-        <input
-          type="text"
-          value={location}
-          onChange={(e) =>{
-            setLocation(e.target.value)
-          }}
-        />
-        <br/>
-        Start Date:
-        <input
-          type="text"
-          value={startDate}
-          onChange={(e) =>{
-            setStartDate(e.target.value)
-          }}
-        />
-        End Date:
-        <input
-          type="text"
-          value={endDate}
-          onChange={(e) =>{
-            setEndDate(e.target.value)
-          }}
-        />
-        <br/>
-        Responsibilities:
-        <input
-          type="text"
-          value={responsibilities}
-          onChange={(e) =>{
-            setResponsibilities(e.target.value)
-          }}
-        />
-        <br/>
-        Tools:
-        <input
-          type="text"
-          value={tools}
-          onChange={(e) =>{
-            setTools(e.target.value)
-          }}
-        />
-        <button
-        type="submit"
-          onClick={(e) => {
-            e.preventDefault() // this makes sure it doesn't handle like a normal button and refresh the page
-            submitEdit(
-              entry.job,
-              job,
-              location,
-              startDate,
-              endDate,
-              responsibilities,
-              tools)
-          }}
-        >
-        Update
-        </button>
+    <div className='job'>
+      <form>
+        <div className='formrow row'>
+          <div className='col-sm-3'>Job:</div>
+          <input
+            className='col-sm-3'
+            type="text"
+            value={job}
+            onChange={(e) =>{
+              setJob(e.target.value)
+            }}
+          />
+        </div>
+        <div className='formrow row'>
+          <div className='col-sm-3'>Location:</div>
+          <input
+            className='col-sm-3'
+            type="text"
+            value={location}
+            onChange={(e) =>{
+              setLocation(e.target.value)
+            }}
+          />
+        </div>
+        <div className='formrow row'>
+          <div className='col-sm-3'>Start Date:</div>
+          <input
+            className='col-sm-3'
+            type="text"
+            value={startDate}
+            onChange={(e) =>{
+              setStartDate(e.target.value)
+            }}
+          />
+          <div className='col-sm-3'>End Date:</div>
+          <input
+            className='col-sm-3'
+            type="text"
+            value={endDate}
+            onChange={(e) =>{
+              setEndDate(e.target.value)
+            }}
+          />
+        </div>
+        <div className='formrow row'>
+          <div className='col-sm-3'>Responsibilities:</div>
+          <input
+            className='col-sm-3'
+            type="text"
+            value={responsibilities}
+            onChange={(e) =>{
+              setResponsibilities(e.target.value)
+            }}
+          />
+        </div>
+        <div className='formrow row'>
+          <div className='col-sm-3'>Tools:</div>
+          <input
+            className='col-sm-3'
+            type="text"
+            value={tools}
+            onChange={(e) =>{
+              setTools(e.target.value)
+            }}
+          />
+          <div className='col-sm-3'>
+            <button
+            type="submit"
+            onClick={(e) => {
+              e.preventDefault() // this makes sure it doesn't handle like a normal button and refreshes the page
+              submitEdit(
+                entry.job,
+                job,
+                location,
+                startDate,
+                endDate,
+                responsibilities,
+                tools)
+            }}>
+            Update
+            </button>
+          </div>
+        </div>
       </form>
     </div>
     ) : (
@@ -182,7 +195,7 @@ export const JobExperience: React.FC<Props> = () => {
 
   return (
     <div>
-      Welcome to resume builder 9000, enter your information:
+      <h2 className='col'>Enter your information:</h2>
       <EntryList entries={entries} />
       <AddEntryForm addEntry={addEntry} />
     </div>

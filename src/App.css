@@ -9,7 +9,7 @@
   padding-top: 1em;
 }
 
-/* Stuff related to steps */
+/* Steps */
 .step {
   background-color: #eee;
   border-radius: 1em;
@@ -32,7 +32,12 @@
   border-radius: 0.5em;
 }
 
-/* Stuff related to the job cards */
+/* job form */
+.formrow {
+  margin:0.25em;
+}
+
+/* job cards */
 .job {
   background-color:#ddd;
   margin: 1em;
@@ -72,4 +77,6 @@ div.icons > button:hover {
   filter: invert(16%) sepia(97%) saturate(7219%) hue-rotate(360deg) brightness(110%) contrast(114%);
 }
 
-
+button {
+  border-radius: 0.5em;
+}

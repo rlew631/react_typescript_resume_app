@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import { JobExperience } from './components/JobExperience';
+import { AboutYou } from './components/AboutYou';
 import { Steps, StepsProvider, useSteps } from "react-step-builder";
 
 function App() {
@@ -37,13 +38,13 @@ const MySteps = () => {
   const { prev, next, jump, total, current, progress } = useSteps();
 
   return (
-    <div className="steps_wrapper">
+    <div className="steps_wrapper col-md-6 offset-md-3">
       <Steps>
         <div className="step">
-          <JobExperience/>
+          <AboutYou/>
         </div>
         <div className="step">
-          <h1>Step 2</h1>
+          <JobExperience/>
         </div>
         <div className="step">
           <h1>Step 3</h1>
